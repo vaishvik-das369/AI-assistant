@@ -47,8 +47,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('iamvaishvik@gmail.com', 'python@ml@ai')
-    server.sendmail('vaishvikpatel001@gmail.com', to, content)
+    server.login('your email', 'your_password')
+    server.sendmail('email', to, content)
     server.close()
 
 def wishMe():
@@ -69,13 +69,13 @@ def NewsFromBBC():
       
     # BBC news api 
     speech_BY_machine("here top news for you")
-    main_url = " https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=4dbc17e007ab436fb66416009dfb59a8"
+    rl = " https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=4dbc17e007ab436fb66416009dfb59a8"
   
     # fetching data in json format 
-    open_bbc_page = requests.get(main_url).json() 
+    bbc = requests.get(url).json() 
   
     # getting all articles in a string article 
-    article = open_bbc_page["articles"] 
+    article = bbc["articles"] 
   
     # empty list which will  
     # contain all trending news 
@@ -103,10 +103,10 @@ if __name__ == "__main__":
         query = takeCommand().lower()
            
         if 'play music' in query:
-             music_dir = 'D:\\Aaaa\\src'
+             dir = 'D:\\Aaaa\\src'
              songs = os.listdir(music_dir)
              print(songs)    
-             os.startfile(os.path.join(music_dir, songs[0]))
+             os.startfile(os.path.join(dir, songs[0]))
 
         elif 'open google' in query:
             webbrowser.open("google.com")
@@ -122,7 +122,7 @@ if __name__ == "__main__":
             try:
                 speech_BY_machine("What should I say?")
                 content = takeCommand()
-                to = "iamvaishvik@gmail.com"    
+                to = "email"    
                 sendEmail(to, content)
                 speech_BY_machine("Email has been sent!")
             except Exception as e:
