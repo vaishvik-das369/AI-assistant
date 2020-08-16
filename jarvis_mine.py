@@ -49,8 +49,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('iamvaishvik@gmail.com', 'python@ml@ai')
-    server.sendmail('vaishvikpatel001@gmail.com', to, content)
+    server.login('email', 'password')
+    server.sendmail('send_email', to, content)
     server.close()
 
 def wishMe():
@@ -64,7 +64,7 @@ def wishMe():
 
     else:
         speech_BY_machine("Good Evening!, jay swaminarayan")  
-    speech_BY_machine(f"   hello parth Sir,    i am jarvis your personal artificial intelligence assistant,  Please tell me how may I help you")  
+    speech_BY_machine(f"   hello Sir,    i am jarvis your personal artificial intelligence assistant,  Please tell me how may I help you")  
     engine.say("I am Jarvis Sir. Please tell me how may I help you")   
 
 def NewsFromBBC(): 
